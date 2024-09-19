@@ -1,0 +1,28 @@
+{% extends 'main/layoute.html' %}
+
+{% block title %}
+    <title>Django first page</title>
+{% endblock %}
+
+{% block content%}
+
+    <section>
+        <h1>Добро пожаловать на сайт {{caption}}!</h1>
+        <br>
+        <h2>О проекте</h2>
+        <p>Этот проект создан для демонстрации возможностей Django, одного из самых популярных фреймворков для веб-разработки на языке Python.</p>
+    </section>
+    <section>
+        <h2>Особенности</h2>
+        <ul>
+            <li><strong>Быстрая разработка:</strong> благодаря встроенным инструментам и библиотекам.</li>
+            <li><strong>Безопасность:</strong> защита от распространенных веб-угроз.</li>
+            <li><strong>Масштабируемость:</strong> способен выдерживать высокие нагрузки.</li>
+        </ul>
+    </section>
+    <section>
+        <h2>Как начать</h2>
+        <p>Чтобы начать работу с Django, установите его с помощью команды <code>pip install django</code> и создайте новый проект с помощью <code>django-admin startproject</code>.</p>
+    </section>
+
+{% endblock %}
