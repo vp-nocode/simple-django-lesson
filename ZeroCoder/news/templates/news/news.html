@@ -1,0 +1,15 @@
+{% extends 'main/layoute.html' %}
+
+{% block title %}
+	<title>Django news</title>
+{% endblock %}
+
+{% block content %}
+	<h2>Django project news page</h2>
+	{% for new in news %}
+	<div>
+		<h3> {{ new.title }} </h3>
+		<p> {{ new.short_description }} </p>
+	</div>
+	{% endfor %}
+{% endblock %}
