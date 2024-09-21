@@ -1,0 +1,31 @@
+{% extends 'main/layoute.html' %}
+
+{% block title %}
+	<title>Page for adding news</title>
+{% endblock %}
+
+{% block content %}
+	<div class="container mt-5">
+	  <h2 class="mb-4">Page for Adding News</h2>
+	  <div>
+		<h4 class="mb-3">Form for Adding News</h4>
+		<form method="post">
+		  {% csrf_token %}
+		  <div class="mb-3">
+			  {{ form.title }}
+		  </div>
+		  <div class="mb-3">
+		  	{{ form.short_description }}
+		  </div>
+		  <div class="mb-3">
+			{{ form.text }}
+		  </div>
+		  <div class="mb-3">
+			 {{ form.pub_date }}
+		  </div>
+			  <button type="submit" class="btn btn-primary">Add news post</button>
+		</form>
+	  </div>
+	</div>
+
+{% endblock %}

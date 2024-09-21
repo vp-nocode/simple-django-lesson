@@ -5,11 +5,40 @@
 {% endblock %}
 
 {% block content %}
-	<h2>Django project news page</h2>
-	{% for new in news %}
-	<div>
-		<h3> {{ new.title }} </h3>
-		<p> {{ new.short_description }} </p>
-	</div>
-	{% endfor %}
+  <div class="container mt-5">
+    <h2 class="mb-4">Django Project News Page</h2>
+    {% if news %}
+      <div class="row">
+        {% for new in news %}
+          <div class="col-12 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h3 class="card-title">{{ new.title }}</h3>
+                <p class="card-text">{{ new.short_description }} ({{ new.pub_date }})</p>
+                <button class="btn btn-primary" onclick="toggleFullText('news-{{ forloop.counter }}')">Read More</button>
+                <div id="news-{{ forloop.counter }}" class="d-none mt-3">
+                  <p>{{ new.text }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <h4>No news yet</h4>
+    {% endif %}
+  </div>
+
+  <p>{{error}}</p>
+
+  <script>
+    function toggleFullText(elementId) {
+      var element = document.getElementById(elementId);
+      if (element.classList.contains('d-none')) {
+        element.classList.remove('d-none');
+      } else {
+        element.classList.add('d-none');
+      }
+    }
+  </script>
 {% endblock %}
